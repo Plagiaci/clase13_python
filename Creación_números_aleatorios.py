@@ -1,16 +1,31 @@
-import random   #Librería para llamar y crear números al azar
-#También se puede escribir 'from random import randint
+from random import randint
+
 numeros=[]
 
-for i in range(10):    #Ciclo para repetir 100 las iteraciones
-    n=random.randint(1,100) #Crea el número
-    numeros.append(n)   #Guardamos en la lista los números
-
-print(numeros)  #Vemos la lista
-
-#Contador de números pares
-cont=0
-for i in range(len(numeros)):
-    if numeros[i]%2==0:
-        cont+=1
-print(f"Cantidad de números pares : {cont}")
+try:
+    print("================================================================================================")
+    for i in range(100):
+        n=randint(0,10)
+        numeros.append(n)
+    print(numeros)
+    print("================================================================================================")
+    for i in range(len(numeros)):
+        if i%2==0:
+            print(f"{i}.- {numeros[i]}")
+    print("================================================================================================")
+    print(f"Número mayor : {max(numeros)}")
+    print("El número mayor se repite en las posiciones : ")
+    for i in range(len(numeros)):
+        if numeros[i]==max(numeros):
+            print(":", i,end=" : ")
+    print(" ")
+    print("================================================================================================")
+    print(f"Número menor : {min(numeros)}")
+    print("El número menor se repite en las posiciones : ")
+    for i in range(len(numeros)):
+        if numeros[i]==min(numeros):
+            print(":", i,end=" : ")
+    print(" ")
+    print("================================================================================================")
+except Exception as e:
+    print(f"Error, {e}")
